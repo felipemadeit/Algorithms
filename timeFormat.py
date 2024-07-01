@@ -10,22 +10,20 @@ def timeConversion (normal_hour: str):
     
     new_hour = 0
     
-    if zone == 'PM':
-        if int(hour) == 12:
-            print(f"{hour}:{minutes}:{seconds}")
-        elif int(hour[1:])< 10:
-            new_hour += 12 + int(hour)
-            print(f"{new_hour}:{minutes}:{seconds}")
-        elif int(hour) >= 10:
-            new_hour += 12 + int(hour)
-            print(f"{new_hour}:{minutes}:{seconds}")
-    else:
-        if int(hour) == 12:
-            new_hour = 0
-            print(f"0{new_hour}:{minutes}:{seconds}")
-        else:
-            print(f"0{hour}:{minutes}:{seconds}")
     
+    if zone == 'AM':
+           if int(hour) == 12:
+               print(f"00:{minutes}:{seconds}")
+           else:
+               print(f"{hour}:{minutes}:{seconds}")
+    else:
+        if hour != '12':
+            if hour[0] == '0':
+                print(f"{12+int(hour[1])}:{minutes}:{seconds}")
+            else:
+                print(f"{12+int(hour)}:{minutes}:{seconds}")
+        else:
+            print(f"{hour}:{minutes}:{seconds}")
 
     
             
